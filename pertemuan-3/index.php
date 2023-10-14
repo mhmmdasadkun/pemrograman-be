@@ -1,3 +1,4 @@
+<!-- CREATED BY AAT GANTENG JANGAN DI COPAS -->
 <?php
 
 class Animal
