@@ -70,10 +70,10 @@ class StudentController extends Controller
         }
 
         $input = [
-            'nama' => $request->nama,
-            'nim' => $request->nim,
-            'email' => $request->email,
-            'jurusan' => $request->jurusan
+            'nama' => $request->nama ?? $student->nama,
+            'nim' => $request->nim ?? $student->nim,
+            'email' => $request->email ?? $student->email,
+            'jurusan' => $request->jurusan ?? $student->jurusan
         ];
 
         $student->update($input);
@@ -95,10 +95,9 @@ class StudentController extends Controller
         if (!$student) {
             return response()->json(['message' => 'Murid tidak ditemukan!'], 404);
         }
+
         $student->delete();
-
         $students = Student::all();
-
         $data = [
             'message' => 'Murid berhasil dihapus!',
             'data' => $students
